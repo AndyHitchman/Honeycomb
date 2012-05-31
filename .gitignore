@@ -11,3 +11,6 @@ _ReSharper.*
 xmldoc/XmlDoc
 **/App_Data/Log.txt
 **/*.orig
+
+# Don't include NuGet Packages
+packages/
