@@ -12,7 +12,7 @@ namespace Honeycomb.Events
         private readonly List<Delegate> eventHandlers = new List<Delegate>();
 
 
-        public void Propagate<TEvent>(UniqueEvent<TEvent> domainEvent) where TEvent : Event
+        public void Send<TEvent>(UniqueEvent<TEvent> domainEvent) where TEvent : Event
         {
             if (eventHandlers == null) return;
 
@@ -20,11 +20,10 @@ namespace Honeycomb.Events
                 handler(domainEvent);
         }
 
-        public void Consume<TEvent>(UniqueEvent<TEvent> @event) where TEvent : Event
+        public void SubscribeReceiver(EventDistributor distributor)
         {
             throw new NotImplementedException();
         }
-
 
         /// <summary>
         ///   Registers a callback to receive the unique event.

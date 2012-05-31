@@ -40,7 +40,7 @@ namespace Honeycomb.Events
 
             foreach (var transport in Transports)
             {
-                transport.Propagate(uniqueEvent);
+                transport.Send(uniqueEvent);
             }
         }
     }
