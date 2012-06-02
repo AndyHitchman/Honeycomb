@@ -1,9 +1,13 @@
 namespace Honeycomb.Events
 {
     using System.Collections.Generic;
+    using Microsoft.Practices.ServiceLocation;
 
-    public interface EventConsumerResolver
+    public class EventConsumerResolver
     {
-        IEnumerable<ConsumesEvent<TEvent>> GetConsumers<TEvent>(TEvent @event) where TEvent : Event;
+        public virtual IEnumerable<ConsumesEvent<TEvent>> GetConsumers<TEvent>(TEvent @event) where TEvent : Event
+        {
+            return (IEnumerable<ConsumesEvent<TEvent>>) ServiceLocator.Current.GetAllInstances(typeof (ConsumesEvent<>).MakeGenericType(typeof (TEvent)));
+        }
     }
 }

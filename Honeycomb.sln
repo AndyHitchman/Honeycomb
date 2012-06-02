@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{703775
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeycomb.StructureMap", "Honeycomb.StructureMap\Honeycomb.StructureMap.csproj", "{65B97D65-6165-4D9D-BE9C-99CF86101B69}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honeycomb.Stash.BerkeleyDB", "Honeycomb.Stash.BerkeleyDB\Honeycomb.Stash.BerkeleyDB.csproj", "{751CDBD7-A7FD-44D7-9630-F74C62BD7DDD}"
 EndProject
 Global
@@ -29,10 +27,6 @@ Global
 		{A4B97F9F-43FB-4ECA-BE04-D783A034F00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B97F9F-43FB-4ECA-BE04-D783A034F00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B97F9F-43FB-4ECA-BE04-D783A034F00F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65B97D65-6165-4D9D-BE9C-99CF86101B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65B97D65-6165-4D9D-BE9C-99CF86101B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65B97D65-6165-4D9D-BE9C-99CF86101B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65B97D65-6165-4D9D-BE9C-99CF86101B69}.Release|Any CPU.Build.0 = Release|Any CPU
 		{751CDBD7-A7FD-44D7-9630-F74C62BD7DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{751CDBD7-A7FD-44D7-9630-F74C62BD7DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751CDBD7-A7FD-44D7-9630-F74C62BD7DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU

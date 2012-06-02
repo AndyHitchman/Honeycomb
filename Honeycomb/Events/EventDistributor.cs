@@ -1,5 +1,6 @@
 ﻿namespace Honeycomb.Events
 {
+    using System;
     using System.Collections.Generic;
 
     public class EventDistributor
@@ -31,5 +32,22 @@
                 consumer.Consume(@event.Event);
             }
         }
+
+        /// <summary>
+        /// Raise an event. Will be propagated over all registered transports
+        /// </summary>
+        /// <typeparam name = "TEvent"></typeparam>
+        /// <param name = "event"></param>
+        /// <returns></returns>
+        public void Raise<TEvent>(TEvent @event) where TEvent : Event
+        {
+            var uniqueEvent = new UniqueEvent<TEvent>(Guid.NewGuid(), @event);
+
+            foreach (var transport in eventTransports)
+            {
+                transport.Send(uniqueEvent);
+            }
+        }
+
     }
 }
