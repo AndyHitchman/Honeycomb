@@ -20,7 +20,7 @@ namespace Honeycomb.Events
                 handler(domainEvent);
         }
 
-        public void SubscribeReceiver(EventDistributor distributor)
+        public void RegisterDistributor(EventDistributor distributor)
         {
             throw new NotImplementedException();
         }

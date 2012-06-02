@@ -11,6 +11,7 @@ _ReSharper.*
 xmldoc/XmlDoc
 **/App_Data/Log.txt
 **/*.orig
+**/nCrunchTemp*
 
 # Don't include NuGet Packages
 packages/

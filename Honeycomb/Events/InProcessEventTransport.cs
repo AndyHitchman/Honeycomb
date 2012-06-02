@@ -9,7 +9,7 @@ namespace Honeycomb.Events
             eventDistributor.Receive(@event);
         }
 
-        public void SubscribeReceiver(EventDistributor distributor)
+        public void RegisterDistributor(EventDistributor distributor)
         {
             eventDistributor = distributor;
         }

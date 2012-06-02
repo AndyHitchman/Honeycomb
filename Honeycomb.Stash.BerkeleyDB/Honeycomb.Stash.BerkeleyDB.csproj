@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B5925CA1-6FF1-4A38-8F3D-879212C7EA8F}</ProjectGuid>
+    <ProjectGuid>{751CDBD7-A7FD-44D7-9630-F74C62BD7DDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Honeycomb</RootNamespace>
-    <AssemblyName>Honeycomb</AssemblyName>
+    <RootNamespace>Honeycomb.Stash.BerkeleyDB</RootNamespace>
+    <AssemblyName>Honeycomb.Stash.BerkeleyDB</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,20 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\CommandApplication.cs" />
-    <Compile Include="Commands\CommandHandlerResolver.cs" />
-    <Compile Include="Commands\HandlesCommand.cs" />
-    <Compile Include="Events\EventConsumerResolver.cs" />
-    <Compile Include="Events\ConsumesEvent.cs" />
-    <Compile Include="Events\Event.cs" />
-    <Compile Include="Events\EventDistributor.cs" />
-    <Compile Include="Events\EventStore.cs" />
-    <Compile Include="Events\EventTransport.cs" />
-    <Compile Include="Events\EventLocus.cs" />
-    <Compile Include="Events\InProcessEventTransport.cs" />
-    <Compile Include="Events\TestEventTransport.cs" />
-    <Compile Include="Events\UniqueEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

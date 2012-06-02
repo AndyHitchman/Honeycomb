@@ -16,6 +16,11 @@ namespace Honeycomb.Events
         public Guid Identity { get; private set; }
 
         /// <summary>
+        /// Type of the event
+        /// </summary>
+        public Type EventType { get { return Event.GetType(); } }
+
+        /// <summary>
         /// The contained event 
         /// </summary>
         public TEvent Event { get; private set; }

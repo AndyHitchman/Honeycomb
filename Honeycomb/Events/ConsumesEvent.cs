@@ -9,7 +9,7 @@
         /// <summary>
         ///   Receive an event
         /// </summary>
-        /// <param name = "domainEvent"></param>
-        void Receive(TEvent domainEvent);
+        /// <param name = "event"></param>
+        void Consume(TEvent @event);
     }
 }

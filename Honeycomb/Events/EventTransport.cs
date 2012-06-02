@@ -17,6 +17,6 @@
         /// <summary>
         /// Subscribes the (one) receiver to distribute events to be consumed within the bounded context. 
         /// </summary>
-        void SubscribeReceiver(EventDistributor distributor);
+        void RegisterDistributor(EventDistributor distributor);
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TestHoneycomb
+﻿namespace TestHoneycomb.TestEvents
 {
+    using System;
     using Honeycomb.Events;
     using NSubstitute;
     using NUnit.Framework;
@@ -12,14 +8,14 @@ namespace TestHoneycomb
     [TestFixture]
     public class TestInProcessEventTransport
     {
-        private class DummyEvent : Event {}
+        public class DummyEvent : Event {}
 
         [Test]
-        public void SendingAnEventShouldForwardToDistributor()
+        public void WhenSendingAnEventThenItShouldForwardToDistributor()
         {
             var subject = new InProcessEventTransport();
-            var distributor = Substitute.For<EventDistributor>();
-            subject.SubscribeReceiver(distributor);
+            var distributor = Substitute.For<EventDistributor>(null, null, new EventTransport[0]);
+            subject.RegisterDistributor(distributor);
 
             var uniqueEvent = new UniqueEvent<DummyEvent>(Guid.NewGuid(), new DummyEvent());
 

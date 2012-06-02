@@ -51,7 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestInProcessEventTransport.cs" />
+    <Compile Include="TestEvents\TestEventDistributor.cs" />
+    <Compile Include="TestEvents\TestInProcessEventTransport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
