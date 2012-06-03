@@ -2,17 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using Microsoft.Practices.ServiceLocation;
 
     public class EventDistributor
     {
+        private readonly IServiceLocator serviceLocator;
         private readonly EventStore eventStore;
-        private readonly EventConsumerResolver eventConsumerResolver;
         private readonly IEnumerable<EventTransport> eventTransports;
 
-        public EventDistributor(EventStore eventStore, EventConsumerResolver eventConsumerResolver, IEnumerable<EventTransport> eventTransports)
+        public EventDistributor(IServiceLocator serviceLocator, EventStore eventStore, IEnumerable<EventTransport> eventTransports)
         {
+            this.serviceLocator = serviceLocator;
             this.eventStore = eventStore;
-            this.eventConsumerResolver = eventConsumerResolver;
             this.eventTransports = eventTransports;
 
             foreach (var transport in eventTransports)
@@ -25,7 +26,7 @@
         {
             if (eventStore.IsEventAlreadyConsumed(@event)) return;
 
-            var consumers = eventConsumerResolver.GetConsumers(@event.Event);
+            var consumers = GetConsumers(@event.Event);
 
             foreach (var consumer in consumers)
             {
@@ -49,5 +50,9 @@
             }
         }
 
+        public virtual IEnumerable<ConsumesEvent<TEvent>> GetConsumers<TEvent>(TEvent @event) where TEvent : Event
+        {
+            return (IEnumerable<ConsumesEvent<TEvent>>)serviceLocator.GetAllInstances(typeof(ConsumesEvent<>).MakeGenericType(typeof(TEvent)));
+        }
     }
 }

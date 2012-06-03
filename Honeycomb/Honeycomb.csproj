@@ -49,7 +49,6 @@
     <Compile Include="Commands\CommandApplication.cs" />
     <Compile Include="Commands\CommandHandlerResolver.cs" />
     <Compile Include="Commands\HandlesCommand.cs" />
-    <Compile Include="Events\EventConsumerResolver.cs" />
     <Compile Include="Events\ConsumesEvent.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="Events\EventDistributor.cs" />
