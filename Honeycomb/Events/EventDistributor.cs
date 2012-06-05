@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using Microsoft.Practices.ServiceLocation;
 
     public class EventDistributor
@@ -10,7 +11,9 @@
         private readonly EventStore eventStore;
         private readonly IEnumerable<EventTransport> eventTransports;
 
-        public EventDistributor(IServiceLocator serviceLocator, EventStore eventStore, IEnumerable<EventTransport> eventTransports)
+        public EventDistributor(
+            IServiceLocator serviceLocator, EventStore eventStore, 
+            IEnumerable<EventTransport> eventTransports)
         {
             this.serviceLocator = serviceLocator;
             this.eventStore = eventStore;
@@ -30,7 +33,30 @@
 
             foreach (var consumer in consumers)
             {
-                consumer.Consume(@event.Event);
+                var decorator = serviceLocator.GetInstance<EventConsumptionDecorator<ConsumesEvent<TEvent>, TEvent>>();
+                var cancelEventArgs = new CancelEventArgs();
+
+                decorator.BeforeConsumption(@event, consumer, cancelEventArgs);
+                if (cancelEventArgs.Cancel) continue;
+
+                try
+                {
+                    try
+                    {
+                        consumer.Consume(@event.Event);
+                    }
+                    catch (Exception e)
+                    {
+                        decorator.AfterFailedConsumption(@event, consumer, new UnhandledExceptionEventArgs(e, false));
+                        throw;
+                    }
+                    decorator.AfterConsumption(@event, consumer);
+                }
+                // ReSharper disable EmptyGeneralCatchClause
+                catch
+                {
+                }
+                // ReSharper restore EmptyGeneralCatchClause
             }
         }
 
@@ -40,7 +66,7 @@
         /// <typeparam name = "TEvent"></typeparam>
         /// <param name = "event"></param>
         /// <returns></returns>
-        public void Raise<TEvent>(TEvent @event) where TEvent : Event
+        public virtual void Raise<TEvent>(TEvent @event) where TEvent : Event
         {
             var uniqueEvent = new UniqueEvent<TEvent>(Guid.NewGuid(), @event);
 
@@ -52,7 +78,7 @@
 
         public virtual IEnumerable<ConsumesEvent<TEvent>> GetConsumers<TEvent>(TEvent @event) where TEvent : Event
         {
-            return (IEnumerable<ConsumesEvent<TEvent>>)serviceLocator.GetAllInstances(typeof(ConsumesEvent<>).MakeGenericType(typeof(TEvent)));
+            return (IEnumerable<ConsumesEvent<TEvent>>)serviceLocator.GetAllInstances<ConsumesEvent<TEvent>>();
         }
     }
 }
