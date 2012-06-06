@@ -17,11 +17,24 @@ namespace TestHoneycomb.TestEvents
         {
             var transport1 = Substitute.For<EventTransport>();
             var transport2 = Substitute.For<EventTransport>();
-
             var subject = new EventDistributor(null, null, new[] {transport1, transport2});
 
             transport1.Received().RegisterDistributor(subject);
             transport2.Received().RegisterDistributor(subject);
+        }
+
+        [Test]
+        public void WhenRaisingAnEventItShouldBeUniquelyIdentifiedWhenSending()
+        {
+            var transport1 = Substitute.For<EventTransport>();
+            var transport2 = Substitute.For<EventTransport>();
+            var subject = new EventDistributor(null, null, new[] { transport1, transport2 });
+            var actual = new DummyEvent();
+
+            subject.Raise(actual);
+
+            transport1.Received().Send(Arg.Is<UniqueEvent<DummyEvent>>(_ => _.Identity != Guid.Empty));
+            transport1.Received().Send(Arg.Is<UniqueEvent<DummyEvent>>(_ => _.Event == actual));
         }
 
         [Test]

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clock.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandApplication.cs" />
     <Compile Include="Commands\CommandHandlerResolver.cs" />
