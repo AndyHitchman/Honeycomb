@@ -12,6 +12,10 @@ xmldoc/XmlDoc
 **/App_Data/Log.txt
 **/*.orig
 **/nCrunchTemp*
+**/.nuget
 
-# Don't include NuGet Packages
+**/libs**/ExampleDDD/bin**/ExampleDDD/obj**
+bin/
+obj/
+libs/
 packages/

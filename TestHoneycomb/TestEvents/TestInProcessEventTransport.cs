@@ -1,4 +1,6 @@
-﻿namespace TestHoneycomb.TestEvents
+﻿using Honeycomb.Aggregate;
+
+namespace TestHoneycomb.TestEvents
 {
     using System;
     using Honeycomb.Events;
@@ -8,7 +10,12 @@
     [TestFixture]
     public class TestInProcessEventTransport
     {
-        public class DummyEvent : Event {}
+        public class DummyEvent : Event {
+            public AggregateRoot Aggregate
+            {
+                get { throw new NotImplementedException(); }
+            }
+        }
 
         [Test]
         public void WhenSendingAnEventThenItShouldForwardToDistributor()

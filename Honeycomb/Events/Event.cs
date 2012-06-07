@@ -1,4 +1,6 @@
-﻿namespace Honeycomb.Events
+﻿using Honeycomb.Aggregate;
+
+namespace Honeycomb.Events
 {
     /// <summary>
     ///   Events represent an irrefutable factual event.
@@ -8,5 +10,6 @@
     /// </summary>
     public interface Event
     {
+        AggregateRoot Aggregate { get; }
     }
 }

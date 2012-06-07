@@ -75,7 +75,7 @@
                 transport.Send(uniqueEvent);
             }
         }
-
+        
         public virtual IEnumerable<ConsumesEvent<TEvent>> GetConsumers<TEvent>(TEvent @event) where TEvent : Event
         {
             return (IEnumerable<ConsumesEvent<TEvent>>)serviceLocator.GetAllInstances<ConsumesEvent<TEvent>>();
