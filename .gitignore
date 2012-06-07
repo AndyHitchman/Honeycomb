@@ -12,8 +12,6 @@ xmldoc/XmlDoc
 **/App_Data/Log.txt
 **/*.orig
 **/nCrunchTemp*
-**/.nuget
-
 **/libs**/ExampleDDD/bin**/ExampleDDD/obj**
 bin/
 obj/

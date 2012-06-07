@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Honeycomb">
-      <HintPath>..\..\Honeycomb\libs\Honeycomb.dll</HintPath>
+      <HintPath>..\..\libs\Honeycomb.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
