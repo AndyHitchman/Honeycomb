@@ -15,10 +15,10 @@
         public void WhenSendingAnEventThenItShouldForwardToDistributor()
         {
             var subject = new InProcessEventTransport();
-            var distributor = Substitute.For<EventDistributor>(null, null, new EventTransport[0]);
+            var distributor = Substitute.For<EventDistributor>(null, null, new EventTransport[0], null);
             subject.RegisterDistributor(distributor);
 
-            var uniqueEvent = new UniqueEvent<DummyEvent>(Guid.NewGuid(), new DummyEvent());
+            var uniqueEvent = new UniqueEvent<DummyEvent>(Guid.NewGuid(), new DummyEvent(), DateTime.MinValue);
 
             subject.Send(uniqueEvent);
 

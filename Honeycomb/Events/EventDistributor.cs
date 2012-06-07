@@ -10,14 +10,17 @@
         private readonly IServiceLocator serviceLocator;
         private readonly EventStore eventStore;
         private readonly IEnumerable<EventTransport> eventTransports;
+        private readonly Clock clock;
 
         public EventDistributor(
             IServiceLocator serviceLocator, EventStore eventStore, 
-            IEnumerable<EventTransport> eventTransports)
+            IEnumerable<EventTransport> eventTransports,
+            Clock clock)
         {
             this.serviceLocator = serviceLocator;
             this.eventStore = eventStore;
             this.eventTransports = eventTransports;
+            this.clock = clock;
 
             foreach (var transport in eventTransports)
             {
@@ -68,7 +71,7 @@
         /// <returns></returns>
         public virtual void Raise<TEvent>(TEvent @event) where TEvent : Event
         {
-            var uniqueEvent = new UniqueEvent<TEvent>(Guid.NewGuid(), @event);
+            var uniqueEvent = new UniqueEvent<TEvent>(Guid.NewGuid(), @event, clock());
 
             foreach (var transport in eventTransports)
             {

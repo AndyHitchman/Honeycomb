@@ -17,7 +17,7 @@ namespace TestHoneycomb.TestEvents
         {
             var transport1 = Substitute.For<EventTransport>();
             var transport2 = Substitute.For<EventTransport>();
-            var subject = new EventDistributor(null, null, new[] {transport1, transport2});
+            var subject = new EventDistributor(null, null, new[] {transport1, transport2}, null);
 
             transport1.Received().RegisterDistributor(subject);
             transport2.Received().RegisterDistributor(subject);
@@ -28,7 +28,7 @@ namespace TestHoneycomb.TestEvents
         {
             var transport1 = Substitute.For<EventTransport>();
             var transport2 = Substitute.For<EventTransport>();
-            var subject = new EventDistributor(null, null, new[] { transport1, transport2 });
+            var subject = new EventDistributor(null, null, new[] { transport1, transport2 }, () => new DateTime(2012, 11, 10, 09, 08, 07));
             var actual = new DummyEvent();
 
             subject.Raise(actual);
@@ -41,9 +41,9 @@ namespace TestHoneycomb.TestEvents
         public void WhenReceivingAnEventThenItWillCheckTheEventStoreToEnsureItsNotAlreadyBeenConsumed()
         {
             var eventStore = Substitute.For<EventStore>();
-            var subject = new EventDistributor(null, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(null, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
 
             eventStore.IsEventAlreadyConsumed(@event).Returns(true);
 
@@ -57,9 +57,9 @@ namespace TestHoneycomb.TestEvents
         {
             var serviceLocator = Substitute.For<IServiceLocator>();
             var eventStore = Substitute.For<EventStore>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             
             eventStore.IsEventAlreadyConsumed(@event).Returns(true);
 
@@ -73,9 +73,9 @@ namespace TestHoneycomb.TestEvents
         {
             var serviceLocator = Substitute.For<IServiceLocator>();
             var eventStore = Substitute.For<EventStore>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
 
             eventStore.IsEventAlreadyConsumed(@event).Returns(false);
             serviceLocator.GetAllInstances<ConsumesEvent<DummyEvent>>().Returns(new ConsumesEvent<DummyEvent>[0]);
@@ -90,9 +90,9 @@ namespace TestHoneycomb.TestEvents
         {
             var serviceLocator = Substitute.For<IServiceLocator>();
             var eventStore = Substitute.For<EventStore>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             var consumer1 = Substitute.For<ConsumesEvent<DummyEvent>>();
             var consumer2 = Substitute.For<ConsumesEvent<DummyEvent>>();
 
@@ -110,9 +110,9 @@ namespace TestHoneycomb.TestEvents
             var serviceLocator = Substitute.For<IServiceLocator>();
             var eventStore = Substitute.For<EventStore>();
             var eventConsumerDecorator = Substitute.For<EventConsumptionDecorator<ConsumesEvent<DummyEvent>,DummyEvent>>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             var consumer = Substitute.For<ConsumesEvent<DummyEvent>>();
 
             serviceLocator.GetAllInstances<ConsumesEvent<DummyEvent>>().Returns(new[] { consumer });
@@ -130,9 +130,9 @@ namespace TestHoneycomb.TestEvents
             var eventStore = Substitute.For<EventStore>();
             var eventConsumerDecorator =
                 Substitute.For<EventConsumptionDecorator<ConsumesEvent<DummyEvent>, DummyEvent>>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             var consumer = Substitute.For<ConsumesEvent<DummyEvent>>();
 
             serviceLocator.GetAllInstances<ConsumesEvent<DummyEvent>>().Returns(new[] {consumer});
@@ -151,9 +151,9 @@ namespace TestHoneycomb.TestEvents
             var serviceLocator = Substitute.For<IServiceLocator>();
             var eventStore = Substitute.For<EventStore>();
             var eventConsumerDecorator = Substitute.For<EventConsumptionDecorator<ConsumesEvent<DummyEvent>, DummyEvent>>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             var consumer = Substitute.For<ConsumesEvent<DummyEvent>>();
 
             serviceLocator.GetAllInstances<ConsumesEvent<DummyEvent>>().Returns(new[] { consumer });
@@ -171,9 +171,9 @@ namespace TestHoneycomb.TestEvents
             var eventStore = Substitute.For<EventStore>();
             var eventConsumerDecorator =
                 Substitute.For<EventConsumptionDecorator<ConsumesEvent<DummyEvent>, DummyEvent>>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             var consumer = Substitute.For<ConsumesEvent<DummyEvent>>();
 
             serviceLocator.GetAllInstances<ConsumesEvent<DummyEvent>>().Returns(new[] { consumer });
@@ -193,9 +193,9 @@ namespace TestHoneycomb.TestEvents
             var serviceLocator = Substitute.For<IServiceLocator>();
             var eventStore = Substitute.For<EventStore>();
             var eventConsumerDecorator = Substitute.For<EventConsumptionDecorator<ConsumesEvent<DummyEvent>, DummyEvent>>();
-            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0]);
+            var subject = new EventDistributor(serviceLocator, eventStore, new EventTransport[0], null);
             var identity = Guid.NewGuid();
-            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent());
+            var @event = new UniqueEvent<DummyEvent>(identity, new DummyEvent(), DateTime.MinValue);
             var consumer = Substitute.For<ConsumesEvent<DummyEvent>>();
 
             serviceLocator.GetAllInstances<ConsumesEvent<DummyEvent>>().Returns(new[] { consumer });

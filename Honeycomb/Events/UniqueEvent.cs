@@ -2,12 +2,14 @@ namespace Honeycomb.Events
 {
     using System;
 
-    public class UniqueEvent<TEvent> where TEvent : Event
+    public class UniqueEvent
     {
-        public UniqueEvent(Guid identity, TEvent @event)
+        protected UniqueEvent(Guid identity, Event @event, DateTime raisedTimestamp)
         {
             Identity = identity;
-            Event = @event;
+            UntypedEvent = @event;
+            RaisedTimestamp = raisedTimestamp;
+            EventType = @event.GetType();
         }
 
         /// <summary>
@@ -16,13 +18,18 @@ namespace Honeycomb.Events
         public Guid Identity { get; private set; }
 
         /// <summary>
-        /// Type of the event
+        /// The event
         /// </summary>
-        public Type EventType { get { return Event.GetType(); } }
+        public Event UntypedEvent { get; private set; }
 
         /// <summary>
-        /// The contained event 
+        /// Type of the event
         /// </summary>
-        public TEvent Event { get; private set; }
+        public Type EventType { get; private set; }
+
+        /// <summary>
+        /// The timestamp when the event was raised.
+        /// </summary>
+        public DateTime RaisedTimestamp { get; private set; }
     }
 }
