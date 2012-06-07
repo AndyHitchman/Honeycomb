@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Honeycomb.Aggregate;
+using DDD;
 using PersonContext.PersonAggregate;
 using PersonContext.PersonAggregate.Entities;
 

@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DDD\DDD.csproj">
+      <Project>{6787A136-8776-4D4B-B7F7-01F8613EE874}</Project>
+      <Name>DDD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PersonContext\MembershipContext.csproj">
       <Project>{F7E040FC-C291-4EEB-94A2-6704C88AA4AB}</Project>
       <Name>MembershipContext</Name>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Honeycomb.Events;
 
-namespace Honeycomb.Aggregate
+namespace DDD
 {
     public class AggregateContainer
     {

@@ -1,6 +1,4 @@
-﻿using Honeycomb.Aggregate;
-
-namespace TestHoneycomb.TestEvents
+﻿namespace TestHoneycomb.TestEvents
 {
     using System;
     using Honeycomb.Events;
@@ -11,10 +9,6 @@ namespace TestHoneycomb.TestEvents
     public class TestInProcessEventTransport
     {
         public class DummyEvent : Event {
-            public AggregateRoot Aggregate
-            {
-                get { throw new NotImplementedException(); }
-            }
         }
 
         [Test]

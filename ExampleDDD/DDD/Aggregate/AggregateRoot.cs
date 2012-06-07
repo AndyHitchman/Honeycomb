@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Honeycomb.Aggregate
+namespace DDD
 {
     public abstract class AggregateRoot
     {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PersonContext.ContextBoundary
 {
-    class Api
+    public class Api
     {
     }
 }

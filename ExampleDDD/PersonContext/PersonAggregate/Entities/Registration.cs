@@ -1,4 +1,4 @@
-using Honeycomb.Aggregate;
+using DDD;
 
 namespace PersonContext.PersonAggregate.Entities
 {

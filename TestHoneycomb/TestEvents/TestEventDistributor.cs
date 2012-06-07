@@ -1,5 +1,3 @@
-using Honeycomb.Aggregate;
-
 namespace TestHoneycomb.TestEvents
 {
     using System;
@@ -12,12 +10,7 @@ namespace TestHoneycomb.TestEvents
     [TestFixture]
     public class TestEventDistributor
     {
-        public class DummyEvent : Event {
-            public AggregateRoot Aggregate
-            {
-                get { throw new NotImplementedException(); }
-            }
-        }
+        public class DummyEvent : Event {}
 
         [Test]
         public void WhenCreatingTheDistributorThenItShouldRegisterItselfWithEveryTransport()

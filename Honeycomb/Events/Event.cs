@@ -1,6 +1,4 @@
-﻿using Honeycomb.Aggregate;
-
-namespace Honeycomb.Events
+﻿namespace Honeycomb.Events
 {
     /// <summary>
     ///   Events represent an irrefutable factual event.
@@ -9,7 +7,6 @@ namespace Honeycomb.Events
     ///   (2) should only be raised if the transaction raising the events commits.
     /// </summary>
     public interface Event
-    {
-        AggregateRoot Aggregate { get; }
+    {        
     }
 }
