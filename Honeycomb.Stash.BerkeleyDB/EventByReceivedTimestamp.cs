@@ -2,6 +2,7 @@ namespace Honeycomb.Stash.BerkeleyDB
 {
     using System;
     using System.Collections.Generic;
+    using Events;
     using global::Stash;
 
     public class EventByReceivedTimestamp : IIndex<StoredEvent,DateTime>

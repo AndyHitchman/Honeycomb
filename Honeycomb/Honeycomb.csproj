@@ -54,6 +54,7 @@
     <Compile Include="Events\EventStore.cs" />
     <Compile Include="Events\EventTransport.cs" />
     <Compile Include="Events\InProcessEventTransport.cs" />
+    <Compile Include="Events\StoredEvent.cs" />
     <Compile Include="Events\TestEventTransport.cs" />
     <Compile Include="Events\UniqueEvent.cs" />
     <Compile Include="Events\UniqueEvent`TEvent.cs" />

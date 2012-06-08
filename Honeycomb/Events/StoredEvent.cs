@@ -1,7 +1,6 @@
-namespace Honeycomb.Stash.BerkeleyDB
+﻿namespace Honeycomb.Events
 {
     using System;
-    using Events;
 
     public class StoredEvent
     {

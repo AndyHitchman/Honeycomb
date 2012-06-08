@@ -1,5 +1,6 @@
 namespace Honeycomb.Stash.BerkeleyDB
 {
+    using Events;
     using global::Stash;
     using global::Stash.BerkeleyDB;
     using global::Stash.BerkeleyDB.Engine;
