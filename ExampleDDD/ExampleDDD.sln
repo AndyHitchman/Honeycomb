@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipContext", "PersonContext\MembershipContext.csproj", "{F7E040FC-C291-4EEB-94A2-6704C88AA4AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RacingContext", "PersonContext\RacingContext.csproj", "{F7E040FC-C291-4EEB-94A2-6704C88AA4AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMembershipContext", "TestMembershipContext\TestMembershipContext.csproj", "{C9E14ACD-8499-4426-ADDF-C54CBB87A8E7}"
 EndProject

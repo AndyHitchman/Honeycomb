@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using DDD;
 
-namespace RacingContext.DogAggregate
+namespace RacingContext.TrackAggregate
 {
-    internal class Dog : AggregateRoot
+    internal class Track : AggregateRoot
     {
     }
 }

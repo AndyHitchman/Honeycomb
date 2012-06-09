@@ -58,6 +58,7 @@
     <Compile Include="Events\TestEventTransport.cs" />
     <Compile Include="Events\UniqueEvent.cs" />
     <Compile Include="Events\UniqueEvent`TEvent.cs" />
+    <Compile Include="IdentityGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,15 +7,15 @@ namespace DDD
 {
     public abstract class Entity<T> where T : AggregateRoot
     {
-        private T aggregateRoot;
-        private int id;
+        protected T aggregateRoot;
+        private Guid id;
 
         /// <summary>
         /// The aggregate root is responsible for assigning ids to entities within its aggregate
         /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <param name="id"></param>
-        protected Entity(T aggregateRoot, int id)
+        protected Entity(T aggregateRoot, Guid id)
         {
             this.aggregateRoot = aggregateRoot;
             this.id = id;

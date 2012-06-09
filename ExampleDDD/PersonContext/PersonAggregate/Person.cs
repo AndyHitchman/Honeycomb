@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using DDD;
-using PersonContext.DogAggregate;
-using PersonContext.DogAggregate.Entities;
-using PersonContext.PersonAggregate.Entities;
+using RacingContext.DogAggregate;
+using RacingContext.PersonAggregate.Entities;
 
-namespace PersonContext.PersonAggregate
+namespace RacingContext.PersonAggregate
 {
     internal class Person : AggregateRoot
     {

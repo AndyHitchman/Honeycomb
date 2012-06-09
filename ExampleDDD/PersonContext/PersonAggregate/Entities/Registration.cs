@@ -1,10 +1,11 @@
+using System;
 using DDD;
 
-namespace PersonContext.PersonAggregate.Entities
+namespace RacingContext.PersonAggregate.Entities
 {
     internal class Registration : Entity<Person>
     {
-        public Registration(Person aggregateRoot, int id) : base(aggregateRoot, id)
+        public Registration(Person aggregateRoot, Guid id) : base(aggregateRoot, id)
         {
         }
     }

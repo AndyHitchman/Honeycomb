@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DDD;
-using PersonContext.PersonAggregate;
-using PersonContext.PersonAggregate.Entities;
 
-namespace PersonContext.DogAggregate.Entities
+namespace RacingContext.DogAggregate.Entities
 {
     internal class LifeState : Entity<Dog>
     {
-        public LifeState(Dog aggregateRoot, int id) : base(aggregateRoot, id)
+        public LifeState(Dog aggregateRoot, Guid id) : base(aggregateRoot, id)
         {
         }
 
