@@ -26,20 +26,37 @@ namespace RacingContext.MeetingAggregate
             identityGenerator = ServiceLocator.Current.GetInstance<IdentityGenerator>();
         }
 
-        public void AddNomination(Dog dog, RaceType raceType, int distanceInMetres)
+        public bool AddNomination(Dog dog, RaceType raceType, int distanceInMetres)
         {
+            if (!isValidDistanceForTrack())
+            {
+                return false;
+            }
+
             var raceEvent = GetExistingRaceEvent(raceType, distanceInMetres) ??
                             new RaceEvent(this, identityGenerator.NewId(), raceType, distanceInMetres);
 
             nominations.Add(new Nomination(this, identityGenerator.NewId(), dog, raceEvent));
+            return true;
         }
 
-        public void AddNomination(Dog dog, AdvertisedEvent advertisedEvent)
+        public bool AddNomination(Dog dog, AdvertisedEvent advertisedEvent)
         {
+            if (!isValidDistanceForTrack())
+            {
+                return false;
+            }
+
             var raceEvent = GetExistingRaceEvent(advertisedEvent) ??
                             new RaceEvent(this, identityGenerator.NewId(), advertisedEvent);
 
             nominations.Add(new Nomination(this, identityGenerator.NewId(), dog, raceEvent));
+            return true;
+        }
+
+        private bool isValidDistanceForTrack()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
