@@ -52,7 +52,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventByReceivedTimestamp.cs" />
+    <Compile Include="EventsByType.cs" />
+    <Compile Include="EventsByReceivedTimestamp.cs" />
     <Compile Include="Configure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

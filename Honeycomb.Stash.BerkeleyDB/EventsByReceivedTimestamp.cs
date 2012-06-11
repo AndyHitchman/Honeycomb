@@ -5,7 +5,7 @@ namespace Honeycomb.Stash.BerkeleyDB
     using Events;
     using global::Stash;
 
-    public class EventByReceivedTimestamp : IIndex<StoredEvent,DateTime>
+    public class EventsByReceivedTimestamp : IIndex<StoredEvent,DateTime>
     {
         public IEnumerable<DateTime> Yield(StoredEvent graph)
         {
