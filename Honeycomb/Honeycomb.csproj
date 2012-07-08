@@ -59,6 +59,7 @@
     <Compile Include="Events\UniqueEvent.cs" />
     <Compile Include="Events\UniqueEvent`TEvent.cs" />
     <Compile Include="IdentityGenerator.cs" />
+    <Compile Include="Projections\PersistentProjection.cs" />
     <Compile Include="Projections\Projection.cs" />
     <Compile Include="Projections\ProjectionStore.cs" />
     <Compile Include="Projections\VersionedProjection.cs" />

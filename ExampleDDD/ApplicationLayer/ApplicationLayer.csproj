@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Meeting\Commands\NominateDogCommand.cs" />
     <Compile Include="Meeting\Handlers\NominateDogHandler.cs" />
+    <Compile Include="Meeting\Projections\MeetingEligibilityProjection.cs" />
     <Compile Include="Meeting\Projections\NominateDogsProjection.cs" />
+    <Compile Include="Meeting\Projections\TrainersDogsEligibilityProjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
