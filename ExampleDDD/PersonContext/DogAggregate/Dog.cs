@@ -8,5 +8,6 @@ namespace RacingContext.DogAggregate
 {
     internal class Dog : AggregateRoot
     {
+        public string Name { get; set; }
     }
 }

@@ -8,5 +8,8 @@ namespace RacingContext.PersonAggregate.Entities
         public Registration(Person aggregateRoot, Guid id) : base(aggregateRoot, id)
         {
         }
+
+        public virtual int RegistrationPeriodInDays { get; set; }
+
     }
 }

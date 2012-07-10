@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogLifecycle.Events", "DogL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossContext", "CrossContext\CrossContext.csproj", "{44C4EDFA-95FB-47D4-91E6-654899810FCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoHoney", "MongoHoney\MongoHoney.csproj", "{0961BE0B-8684-4349-8E6D-2752530FFB3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,16 @@ Global
 		{44C4EDFA-95FB-47D4-91E6-654899810FCD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{44C4EDFA-95FB-47D4-91E6-654899810FCD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{44C4EDFA-95FB-47D4-91E6-654899810FCD}.Release|x86.ActiveCfg = Release|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0961BE0B-8684-4349-8E6D-2752530FFB3C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

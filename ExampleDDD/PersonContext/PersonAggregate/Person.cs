@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DDD;
+using DDD.Aggregate;
 using RacingContext.DogAggregate;
 using RacingContext.PersonAggregate.Entities;
 
@@ -9,6 +10,6 @@ namespace RacingContext.PersonAggregate
     {
         public Registration Registration { get; set; }
 
-        public Dog Dog { get; set; }
+        public AggregateReference<Dog> Dog { get; set; }
     }
 }

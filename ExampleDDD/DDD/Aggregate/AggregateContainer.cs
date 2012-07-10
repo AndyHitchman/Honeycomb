@@ -21,7 +21,7 @@ namespace DDD
 
         public void RegisterAggregate(AggregateRoot aggregateRoot)
         {
-            aggregateRoots[aggregateRoot.Id] = aggregateRoot;
+            aggregateRoots[aggregateRoot.Identity] = aggregateRoot;
         }
 
         public AggregateRoot MaterialiseAggregate(Guid aggregateId)

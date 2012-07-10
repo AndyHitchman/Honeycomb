@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Honeycomb;
 
 namespace DDD
 {
-    public abstract class AggregateRoot
+    public abstract class AggregateRoot : Identifiable
     {
         protected AggregateRoot()
         {
-            Id = Guid.NewGuid();
+            Identity = Guid.NewGuid();
         }
 
-        public virtual Guid Id { get; private set; }
+        public virtual Guid Identity { get; set; }
     }
 }

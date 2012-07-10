@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Honeycomb.Events
 {
     using System;
@@ -10,6 +12,7 @@ namespace Honeycomb.Events
             UntypedEvent = @event;
             RaisedTimestamp = raisedTimestamp;
             EventType = @event.GetType();
+            ConsumptionRecords = new List<ConsumptionRecord>();
         }
 
         /// <summary>
@@ -31,5 +34,18 @@ namespace Honeycomb.Events
         /// The timestamp when the event was raised.
         /// </summary>
         public DateTime RaisedTimestamp { get; private set; }
+
+        public ICollection<ConsumptionRecord> ConsumptionRecords { get; protected set; }
+
+        public class ConsumptionRecord
+        {
+            public virtual DateTime ConsumedTime { get; set; }
+
+            public virtual DateTime? CompletedTime { get; set; }
+
+            public virtual ConsumesEvent<Event> Consumer  { get; set; }
+
+            public virtual UnhandledExceptionEventArgs ExceptionEventArgs { get; set; }
+        }
     }
 }

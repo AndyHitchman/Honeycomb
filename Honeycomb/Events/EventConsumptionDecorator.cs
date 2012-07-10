@@ -25,7 +25,7 @@ namespace Honeycomb.Events
         /// Called for each consumer of the event, after consumption. 
         /// </summary>
         /// <remarks>
-        /// If an unhandled exception is propagated from the consumer, <see cref="AfterConsumption"/> will be called instead of this method.</remarks>
+        /// If an unhandled exception is propagated from the consumer, <see cref="AfterFailedConsumption"/> will be called instead of this method.</remarks>
         /// <param name="uniqueEvent"></param>
         /// <param name="consumer"></param>
         void AfterConsumption(UniqueEvent<TEvent> uniqueEvent, ConsumesEvent<TEvent> consumer);

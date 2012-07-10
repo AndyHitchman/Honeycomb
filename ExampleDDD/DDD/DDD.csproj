@@ -36,6 +36,13 @@
     <Reference Include="Honeycomb">
       <HintPath>..\..\libs\Honeycomb.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="NSubstitute">
       <HintPath>..\packages\NSubstitute.1.4.0.0\lib\NET40\NSubstitute.dll</HintPath>
     </Reference>
@@ -52,9 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aggregate\AggregateContainer.cs" />
+    <Compile Include="Aggregate\AggregateReference.cs" />
     <Compile Include="Aggregate\AggregateRoot.cs" />
     <Compile Include="Aggregate\Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructureMapServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
